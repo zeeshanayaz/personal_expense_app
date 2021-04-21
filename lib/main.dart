@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _deleteTransaction(String txId){
+  void _deleteTransaction(String txId) {
     setState(() {
       _userTransactions.removeWhere((tx) {
         return tx.id == txId;
@@ -134,7 +134,8 @@ class _MyHomePageState extends State<MyHomePage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Chart(_recentTransaction),
-          TransactionList(_userTransactions, _deleteTransaction),
+          Expanded(
+              child: TransactionList(_userTransactions, _deleteTransaction)),
         ],
       ),
       floatingActionButton: FloatingActionButton(
